@@ -1,7 +1,6 @@
 -- ============================================================
 --  Cinema Ticket Booking System — Sample Data
 -- ============================================================
-
 -- ── Movies ────────────────────────────────────────────────────
 INSERT INTO movies (title, genre, director, duration_minutes, rating, language, release_date, description) VALUES
 ('Inception',           'Sci-Fi',   'Christopher Nolan',   148, 'PG-13', 'English', '2010-07-16', 'A thief who steals corporate secrets through dream-sharing technology.'),
