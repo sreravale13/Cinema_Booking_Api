@@ -5,8 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-
 @Data
 @Builder
 @NoArgsConstructor
@@ -19,6 +17,6 @@ public class Movie {
     private int durationMinutes;
     private String rating;         // G, PG, PG-13, R
     private String language;
-    private LocalDate releaseDate;
+    private String releaseDate;
     private String description;
 }

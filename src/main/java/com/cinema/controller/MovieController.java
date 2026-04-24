@@ -3,15 +3,13 @@ package com.cinema.controller;
 import com.cinema.model.Movie;
 import com.cinema.service.MovieService;
 import jakarta.validation.Valid;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/movies")
 public class MovieController {
 
@@ -24,9 +22,9 @@ public class MovieController {
     @GetMapping
     public ResponseEntity<List<Movie>> getAllMovies(
             @RequestParam(required = false) String genre,
-            @RequestParam(required = false) String search) {
-        if (genre != null) return ResponseEntity.ok(movieService.getMoviesByGenre(genre));
-        if (search != null) return ResponseEntity.ok(movieService.searchMovies(search));
+            @RequestParam(required = false) String search
+    ) {
+
         return ResponseEntity.ok(movieService.getAllMovies());
     }
 
