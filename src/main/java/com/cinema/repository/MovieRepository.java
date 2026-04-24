@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,14 +31,15 @@ public class MovieRepository {
             .durationMinutes(rs.getInt("duration_minutes"))
             .rating(rs.getString("rating"))
             .language(rs.getString("language"))
-            .releaseDate(rs.getDate("release_date") != null
-                    ? rs.getDate("release_date").toLocalDate() : null)
+//            .releaseDate(rs.getDate("release_date") != null
+//                    ? rs.getDate("release_date").toString() : null)
             .description(rs.getString("description"))
             .build();
 
     public List<Movie> findAll() {
-        String sql = "SELECT * FROM movies ORDER BY title";
-        return jdbcTemplate.query(sql, movieRowMapper);
+        String sql = "SELECT * FROM movies";
+        List<Movie> mv= jdbcTemplate.query(sql, movieRowMapper);
+        return mv;
     }
 
     public Optional<Movie> findById(Long id) {
